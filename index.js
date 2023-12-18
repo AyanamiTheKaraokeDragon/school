@@ -19,15 +19,26 @@ const connection = mysql.createConnection({
 });
 
 app.get('/anime', (req, res) => {
-  connection.query('SELECT * FROM anime', (error, results, fields) => {
+  connection.query('SELECT * FROM anime ORDER BY ID', (error, results, fields) => {
     if (error) {
       console.error(error);
       return;
     }
-    console.log(results);
-    res.render('users',{results});
+    
+    // Seřadit výsledky podle ID
+    results.sort((a, b) => a.ID - b.ID);
 
- 
+    // Formátovat výsledky
+    const formattedResults = results.map(record => {
+      return `ID: ${record.ID}, Název: ${record.Nazev}, Hodnocení: ${record.Hodnoceni}, Rok vydání: ${record.Rok_vydani}`;
+    });
+
+    // Vypsat výsledky do konzole
+    formattedResults.forEach(result => {
+      console.log(result);
+    });
+
+    res.render('users', { results });
   });
 });
 app.get("/newuser", (req, res) => {
