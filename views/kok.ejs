@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zobrazení Uživatelé</title>
+    <link rel="icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/en/2/2d/Rei_II.jpg">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://www.enwallpaper.com/wp-content/uploads/2021/09/3477043.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+    text-align: center;
+    margin-bottom: 20px; /* Můžete upravit hodnotu pro celkový odstup od nadpisu */
+    color: white;
+}
+
+
+ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Display in three columns */
+    grid-gap: 10px; /* Adjust the gap between items */
+}
+
+/* Přidává mezeru pod prvním seznamem uživatelů */
+ul:nth-child(1) {
+    margin-bottom: 120px; /* Můžete upravit hodnotu pro mezeru mezi skupinami */
+}
+
+li {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+li:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+    transition: background-color 0.3s;
+}
+
+.topnav {
+    background-color: #000000;
+    overflow: hidden;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.topnav a {
+    color: #f2f2f2;
+    float: left;
+    font-size: 17px;
+    padding: 14px 16px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: #6331c0;
+    color: white;
+}
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>Registrovaní Uživatelé:</h1>
+        <div>
+            <ul>
+                <% users.slice(3).forEach(user => { %>
+                    <li>ID: <%= user.ID %>, Username: <%= user.username %></li>
+                <% }); %>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <% users.slice(0, 3).forEach(user => { %>
+                    <li>ID: <%= user.ID %>, Username: <%= user.username %></li>
+                <% }); %>
+            </ul>
+        </div>
+    </div>
+    <div class="topnav">
+        <a href="/main">Domů</a>
+        <a href="/galerie">Galerie</a>
+        <a href="/dino">Motivace</a>
+        <a href="/upload">Upload</a>
+        <a class="active" href="/kok">Seznam Uživatelů</a>
+        <a style="float: right;" href="/profile"><%= loggedInUserName %></a>
+    </div>
+</body>
+
+</html>

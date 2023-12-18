@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Rudý Teror - Motivace</title>
+    <link rel="icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/en/2/2d/Rei_II.jpg ">
+    <style>
+        /* Resetujeme výchozí margin a padding pro tělo a html */
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Skryje přebytečný scrollbar */
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            justify-content: space-between;
+        }
+
+        /* Nastavíme obrázek na pozadí, aby pokryl celou stránku */
+        body {
+            background-image: url('https://media.tenor.com/klVNTEnFUWgAAAAd/pomni-stare.gif');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            background-position: center;
+            background-attachment: fixed; /* Umožní scrollovat obsah, aniž by se pozadí pohybovalo */
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .topnav {
+            background-color: #000000;
+            overflow: hidden;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .topnav a {
+            color: #f2f2f2;
+            float: left;
+            font-size: 17px;
+            padding: 14px 16px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .topnav a.active {
+            background-color: #b21414;
+            color: white;
+        }
+
+
+       
+       
+
+    </style>
+</head>
+<body>
+    <div class="topnav">
+        <a  href="/main">Domů</a>
+        <a href="/galerie">Galerie</a>
+        <a href="/dino">Motivace</a>
+        <a href="/upload">Upload</a>
+        <a href="/kok">Seznam Uživatelů</a>
+        <a style="float: right;" href ="/profile"><%= loggedInUserName %></a>
+    </div>
+</body>
+</html>

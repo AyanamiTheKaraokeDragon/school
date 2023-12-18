@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Přihlášení</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://wallpapers.com/images/hd/aesthetic-anime-background-fwccitdecpa1jglo.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: zoomIn 1s forwards;
+        }
+        
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            background-color: #52289f;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #6331c0;
+        }
+        .submit-button {
+        display: inline-block;
+        padding: 5px 20px;
+        margin-top: 10px;
+        background-color: #00aaff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 12px;
+    }
+
+    .submit-button:hover {
+        background-color: #0088cc;
+    }
+    .checkbox-container {
+            display: flex;
+            align-items: center;
+            padding: px; /* Adjust padding */
+    }
+
+    .checkbox-label {
+        color: white;
+        font-size: 12px; /* Adjust font size */
+        margin-left: 10px; /* Add some margin between label and checkbox */
+        cursor: pointer; /* Make the label cursor pointer */
+    }
+
+    .checkbox-label:hover {
+        text-decoration: underline; /* Add underline on hover */
+    }
+
+    input[type="checkbox"] {
+        align-items: center;
+        width: 15px; /* Adjust width */
+        height: 15px; /* Adjust height */
+        margin: 0; /* Remove margin */
+        padding: 0; /* Remove padding */
+    }
+    </style>
+</head>
+<body>
+    <form action="/login" method="POST">
+        <h3>Přihlášení</h3>
+        <label for="username">Uživatelské jméno:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">Heslo:</label>
+        <input type="password" id="password" name="password" required>
+        <div class="checkbox-container">
+            <label class="checkbox-label" for="showPassword">Zobrazit heslo</label> <!-- Add the label for the checkbox -->
+            <input type="checkbox" id="showPassword" style="margin-left: 10px;"> <!-- Add the checkbox -->
+        </div>
+        <br>
+        <button type="submit">Přihlásit se</button>
+        <a href="/register" class="submit-button">Ještě nemám účet</a>
+    </form>
+
+    <script>
+        const showPasswordCheckbox = document.getElementById('showPassword');
+        const passwordInput = document.getElementById('password');
+
+        showPasswordCheckbox.addEventListener('change', () => {
+            passwordInput.type = showPasswordCheckbox.checked ? 'text' : 'password';
+        });
+      
+    </script>
+</body>
+</html>
